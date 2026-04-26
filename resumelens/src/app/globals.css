@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+  --font-space-mono: 'Space Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #05070f;
+  color: #e8edf8;
+  font-family: var(--font-space-grotesk);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar           { width: 5px; }
+::-webkit-scrollbar-track     { background: #080c18; }
+::-webkit-scrollbar-thumb     { background: #1e2f55; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: #00e5ff44; }
+
+/* ── Selection ── */
+::selection { background: #00e5ff25; color: #00e5ff; }
+
+/* ── Grid bg utility ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0,229,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.025) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(90deg, #00e5ff 0%, #a855f7 55%, #00e5ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* ── Card top-edge glow ── */
+.card-glow::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,229,255,0.3), transparent);
+}
+
+/* ── Three.js canvas ── */
+#three-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* ── Skill chip hover ── */
+.skill-chip {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.skill-chip:hover {
+  transform: translateY(-2px);
+}
+
+/* ── Bar fill animation ── */
+.bar-fill {
+  transition: width 1.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* ── Stagger helpers ── */
+.stagger-1  { animation-delay: 0.05s; }
+.stagger-2  { animation-delay: 0.10s; }
+.stagger-3  { animation-delay: 0.15s; }
+.stagger-4  { animation-delay: 0.20s; }
+.stagger-5  { animation-delay: 0.25s; }
+.stagger-6  { animation-delay: 0.30s; }
+.stagger-7  { animation-delay: 0.35s; }
+.stagger-8  { animation-delay: 0.40s; }
